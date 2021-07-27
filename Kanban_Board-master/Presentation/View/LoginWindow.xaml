@@ -1,0 +1,25 @@
+﻿<Window x:Class="Presentation.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="484*"/>
+            <ColumnDefinition Width="69*"/>
+            <ColumnDefinition Width="239*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="348,285,0,0" VerticalAlignment="Top" Width="75" Click="Login_Click"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="232,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.438,-0.089"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="232,191,0,0" VerticalAlignment="Top"/>
+        <TextBox   HorizontalAlignment="Left" Height="38" Margin="332,112,0,0" TextWrapping="Wrap" Text="{Binding Username}" VerticalAlignment="Top" Width="145"/>
+
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="332,191,0,0" TextWrapping="Wrap"  Text="{Binding Password}" VerticalAlignment="Top" Width="144"/>
+        <Label Content="{Binding Path=Message, Mode=OneWay}" Foreground="Red" HorizontalAlignment="Left" Margin="380,323,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,0.475"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="125,285,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="Back_Click"/>
+
+    </Grid>
+</Window>

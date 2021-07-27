@@ -1,0 +1,61 @@
+﻿<Window x:Class="Presentation.View.ShowBoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="626" Width="1184">
+    <Grid>
+        <ListBox Name="Columns"  Margin="10,44,128,0" ItemsSource="{Binding Path=Board.Columns, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedColumn, Mode=TwoWay }"  VerticalAlignment="Top" >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#FF003CFF" BorderThickness="1">
+                        <StackPanel Height="450">
+                            <TextBox  IsReadOnly="True" Text="{Binding Path=Name, Mode=TwoWay}"  VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="25,10,20.6,20" FontWeight="Bold" />
+                            <TextBox  IsReadOnly="True" Text="{Binding Path=Ordinal, Mode=TwoWay}"  VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="0,15,0.6,0" FontWeight="Bold" />
+                            <ListBox Name="Tasks" MouseDoubleClick="tasksList_DoubleClick" ItemsSource="{Binding Path=Tasks,Mode=TwoWay}" SelectedItem="{Binding Path=DataContext.SelectedTask,Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" VerticalAlignment="Top">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="{Binding Path=BackGroundColor,Mode=TwoWay}"  BorderThickness="1">
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBox HorizontalAlignment="Left" Height="23" Margin="0,0,60,19" TextWrapping="Wrap" Text="{Binding Path=Title, Mode=TwoWay}" Foreground="{Binding Path=FontColor,Mode=TwoWay}"  Width="120" VerticalAlignment="Top"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="add task"  HorizontalAlignment="Left" Margin="1091,54,0,0" VerticalAlignment="Top" Width="75" Click="addTask_Click"/>
+        <Button Content="add column" HorizontalAlignment="Left" Margin="1091,89,0,0" VerticalAlignment="Top" Width="75" Click="addColumn_Click"/>
+        <Button Content="filter tasks" HorizontalAlignment="Left" Margin="1091,124,0,0" VerticalAlignment="Top" Width="75" Click="filterTask_Click"/>
+        <Button Content="due date sort" HorizontalAlignment="Left" Margin="1091,198,0,0" VerticalAlignment="Top" Width="75" Click="dueDateSort_Click"/>
+        <Button IsEnabled="{Binding Path=EnableForward}" Content="Limit column tasks" HorizontalAlignment="Left" Margin="10,550,0,0" VerticalAlignment="Top" Width="118" Click="limitColumnTasks_Click"/>
+        <Button IsEnabled="{Binding Path=EnableForward}" Content="change column name" HorizontalAlignment="Left" Margin="146,550,0,0" VerticalAlignment="Top" Width="121" Click="changeColumnName_Click"/>
+        <Button IsEnabled="{Binding Path=EnableForward}" Content="move column right" HorizontalAlignment="Left" Margin="423,550,0,0" VerticalAlignment="Top" Width="108" Click="moveColumnRight_Click"/>
+        <Button IsEnabled="{Binding Path=EnableForward}" Content="move column left" HorizontalAlignment="Left" Margin="553,550,0,0" VerticalAlignment="Top" Width="108" Click="moveColumnLeft_Click"/>
+        <Button IsEnabled="{Binding Path=EnableForward}" Content="remove column" HorizontalAlignment="Left" Margin="292,550,0,0" VerticalAlignment="Top" Width="100" Click="removeColumn_Click"/>
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="1091,565,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click"/>
+        <Button Content="Clear Filter" HorizontalAlignment="Left" Margin="1091,162,0,0" VerticalAlignment="Top" Click="ClearFilter_Click" Width="75"/>
+        <Label Content="hello" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.255,0.375"/>
+
+        <TextBox IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="74,13,0,0" TextWrapping="Wrap" Text="{Binding Path=User.Email, Mode=TwoWay}"  BorderBrush="White" VerticalAlignment="Top" Width="154" />
+        <Label Content="{Binding Path=Message, Mode=TwoWay}" Foreground="Red" HorizontalAlignment="Center" Margin="687,501,77,0" VerticalAlignment="Top" Width="412" Height="35"/>
+
+
+
+
+
+    </Grid>
+</Window>

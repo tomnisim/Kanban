@@ -1,0 +1,33 @@
+﻿<Window x:Class="Presentation.View.ShowTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View"
+        mc:Ignorable="d"
+        Title="ShowTask" Height="450" Width="800">
+    <Grid>
+        
+        <Label Content="Email assignee" HorizontalAlignment="Left" Margin="97,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.113,-1.449"/>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="97,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Creation time" HorizontalAlignment="Left" Margin="97,203,0,0" VerticalAlignment="Top"/>
+        <Label Content="Due date" HorizontalAlignment="Left" Margin="97,234,0,0" VerticalAlignment="Top"/>
+        <Label Content="Column" HorizontalAlignment="Left" Margin="97,98,0,0" VerticalAlignment="Top"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="97,265,0,0" VerticalAlignment="Top"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="190,98,0,0" TextWrapping="Wrap" Text="{Binding Path=column.Name, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Path=Message, Mode=OneWay}" Foreground="Red" HorizontalAlignment="Left" Margin="338,310,0,0" VerticalAlignment="Top"/>
+
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="190,138,0,0" TextWrapping="Wrap" Text="{Binding Path=task.EmailAssignee, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="190,175,0,0" TextWrapping="Wrap" Text="{Binding Path=task.Title, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="190,207,0,0" TextWrapping="Wrap" Text="{Binding Path=task.CreationTime, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="190,236,0,0" TextWrapping="Wrap" Text="{Binding Path=task.DueDate, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="190,269,0,0" TextWrapping="Wrap" Text="{Binding Path=task.Description, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Advance task" HorizontalAlignment="Left" Margin="388,98,0,0" VerticalAlignment="Top" Width="75" Click="advanceTask_Click" />
+        <Button Content="Assign task" HorizontalAlignment="Left" Margin="388,178,0,0" VerticalAlignment="Top" Width="75" Click="assignTask_Click"/>
+        <Button Content="Delete task" HorizontalAlignment="Left" Margin="388,138,0,0" VerticalAlignment="Top" Width="75" Click="deleteTask_Click" />
+        <Button Content="Edit title" HorizontalAlignment="Left" Margin="388,210,0,0" VerticalAlignment="Top" Width="75" Click="editTitle_Click" />
+        <Button Content="Edit due date" HorizontalAlignment="Left" Margin="388,239,0,0" VerticalAlignment="Top" Width="75" Click="editDueDate_Click" />
+        <Button Content="Edit descrtiption" HorizontalAlignment="Left" Margin="388,271,0,0" VerticalAlignment="Top" Width="94" Click="editDescription_Click" RenderTransformOrigin="0.516,0.454" />
+
+    </Grid>
+</Window>

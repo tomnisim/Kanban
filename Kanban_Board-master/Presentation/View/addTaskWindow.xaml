@@ -1,0 +1,21 @@
+﻿<Window x:Class="Presentation.View.addTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View"
+        mc:Ignorable="d"
+        Title="addTaskWindow" Height="234" Width="343.467">
+    <Grid>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="24,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="Due date" HorizontalAlignment="Left" Margin="24,56,0,0" VerticalAlignment="Top"/>
+        <Label Content="Description(optional)" HorizontalAlignment="Left" Margin="24,85,0,0" VerticalAlignment="Top"/>
+        <TextBox Text ="{Binding Path=Title, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="149,21,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="149,89,0,0" TextWrapping="Wrap" Text ="{Binding Path=Description, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="add task" HorizontalAlignment="Left" Margin="118,140,0,0" VerticalAlignment="Top" Width="75" Click="addTask_Click"/>
+        <DatePicker  HorizontalAlignment="Left" Margin="149,56,0,0" SelectedDate="{Binding Path=DueDate, Mode=TwoWay}"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Path=Message, Mode=OneWay}" Foreground="Red" HorizontalAlignment="Left" Margin="129,165,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
